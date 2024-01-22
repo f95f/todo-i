@@ -12,7 +12,7 @@ export class InputComponent implements OnChanges {
   @Input() itemToEdit!: Item; 
   itemValue!: string;
   isEditing: boolean = false;
-  buttonText: string = 'Adicionar';
+  buttonText: string = '+ Adicionar';
 
   constructor(private service: TodoService){}
 
