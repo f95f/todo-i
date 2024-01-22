@@ -1,0 +1,22 @@
+input{
+    margin: 3em;
+    padding: 1em;
+    border: unset;
+    border-radius: 3em;
+    height: 3em;
+    width: 80%;
+    font-size: 1.2em;
+
+    background-color: var(--base);
+    box-shadow: 
+            12px 12px 24px #3333,
+    inset   -2px -2px 2px var(--light),
+    inset   2px 2px 2px var(--dark);
+ 
+    transition: all .2s ease;
+}
+input:hover{
+    box-shadow: 
+        6px 6px 12px #3333; 
+
+}

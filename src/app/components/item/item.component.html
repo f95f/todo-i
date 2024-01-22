@@ -7,8 +7,8 @@
             [checked]="item.isDone">
     <p class="description">{{item.name}}</p>
     <div *ngIf="!item.isDone" class="actions-container">
-        <i class="fas fa-trash" (click)="deleteItem()"></i>
-        <i class="fas fa-pen" (click)="updateItem()"></i>
+        <i  (click)="deleteItem()">excluir</i>
+        <i  (click)="updateItem()">editar</i>
         
     </div>
     <small class="date">{{item.date}}</small>
