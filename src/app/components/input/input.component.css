@@ -1,6 +1,5 @@
 
 form{
-    padding: 3em;
     position: relative;
 }
 input{
@@ -8,12 +7,13 @@ input{
     border: unset;
     border-radius: 3em;
     height: 3em;
-    width: 80%;
+    width: 100%;
+    max-width: 1000px;
     font-size: 1.2em;
     font-family: 'PT Sans', Arial, Helvetica, sans-serif;
 
     color: var(--darkest);
-    background-color: var(--base);
+    background-color: #eeee;
     
     box-shadow: 
             6px 6px 12px #3333,
@@ -37,20 +37,17 @@ input:active{
 input:focus{
     outline: 1px solid var(--accent);
 }
-input:hover + button, input:active + button{
-    color: var(--accent);
-}
 button{
     position: absolute;
     top: 50%;
-    right: 10em;
-    transform: translateY(-50%);
+    right: 0;
+    transform: translate(-175%, -50%);
     padding: 0;
     border: unset;
     height: 3em;
     font-family: 'PT Sans', Arial, Helvetica, sans-serif;
     font-size: 1.1em;
-    color: var(--darkest);
+    color: var(--accent);
     background-color: #fff0;
     cursor: pointer;
     transition: all .2s ease;

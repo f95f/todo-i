@@ -1,9 +1,8 @@
 <!-- <router-outlet></router-outlet> -->
 <section>
-  <h1>TODO:</h1>
+  <h1>todo:</h1>
   <app-input [itemToEdit]="itemToEdit"></app-input>
-  <button (click)="clearList()">
-    <i class="fa-regular fa-circle-xmark"></i>
+  <button (click)="clearList()" class="clear-button">
     Limpar
   </button>
   <ul class="list" *ngIf="todoList.length; else noItemsToShow">
@@ -14,6 +13,8 @@
     </li>
   </ul>
   <ng-template #noItemsToShow>
-    <small>N tem item mn</small>
+    <div>
+      <span class="empty-list-info">Não há itens na lista.</span>
+    </div>
   </ng-template>
 </section>

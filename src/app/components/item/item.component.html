@@ -1,15 +1,23 @@
-<div class="item-container">
-    <input  type="checkbox"
+<div class="item-container" [class.sunken]="item.isDone">
+    <div class="left">
+        <label for="done" class="checkbox-container">
+            <input type="checkbox"
             class="checkbox"
             name="done"
             id="done"
             (change)="updateCheckedStatus()"
             [checked]="item.isDone">
-    <p class="description">{{item.name}}</p>
-    <div *ngIf="!item.isDone" class="actions-container">
-        <i  (click)="deleteItem()">excluir</i>
-        <i  (click)="updateItem()">editar</i>
-        
+        </label>
+        <div class="separator"></div>
+        <p class="description">{{item.name}}</p>
     </div>
-    <small class="date">{{item.date}}</small>
+
+    <div class="right">
+        <div *ngIf="!item.isDone" class="actions-container">
+            <i  (click)="deleteItem()">excluir</i>
+            <i  (click)="updateItem()">editar</i>
+        </div>
+        <div class="separator"></div>
+        <small class="date">{{item.date}}</small>
+    </div>
 </div>
