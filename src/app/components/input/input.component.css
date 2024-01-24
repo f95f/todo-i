@@ -40,12 +40,12 @@ input:focus{
 button{
     position: absolute;
     top: 50%;
-    right: 0;
-    transform: translate(-175%, -50%);
+    right: 4%;
+    transform: translate(0, -50%);
     padding: 0;
     border: unset;
     height: 3em;
-    font-family: 'PT Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1.1em;
     color: var(--accent);
     background-color: #fff0;
@@ -54,4 +54,5 @@ button{
 }
 button:hover{
     color: var(--accent);
+    text-shadow: 0 0 16px var(--accent);
 }

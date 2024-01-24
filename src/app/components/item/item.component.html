@@ -14,8 +14,8 @@
 
     <div class="right">
         <div *ngIf="!item.isDone" class="actions-container">
-            <i  (click)="deleteItem()">excluir</i>
-            <i  (click)="updateItem()">editar</i>
+            <app-trash (click)="deleteItem()"></app-trash>
+            <app-pencil (click)="updateItem()"></app-pencil>
         </div>
         <div class="separator"></div>
         <small class="date">{{item.date}}</small>

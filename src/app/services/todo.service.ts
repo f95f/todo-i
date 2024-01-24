@@ -22,12 +22,19 @@ export class TodoService {
     const newItem: Item = {
       id: id,
       name: item,
-      date: new Date().toLocaleString('pt-BR'),
+      date: this.makeDate(),
       isDone: false,
     }
     return newItem;
   }
-
+  makeDate(): string{
+    const months = [
+      "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+      "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"
+    ];
+    const currentDate = new Date();
+    return `${currentDate.getDate()} de ${months[currentDate.getMonth()]}`;
+  }
   addItemToList(itemName: string){
     const item = this.createItem(itemName);
     this.todoList.push(item);

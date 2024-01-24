@@ -29,9 +29,7 @@
     display: grid;
     grid-template-columns: 1em auto;
     gap: 0.5em;
-    
 }
-
 .checkbox-container:disabled {
     cursor: not-allowed;
 }
@@ -45,12 +43,13 @@ input[type="checkbox"] {
     border-radius: .6em;
     transform: translateY(-0.075em);
     display: grid;
+    cursor: pointer;
+    outline: unset;
     place-content: center;
     transition: all .2s ease;
     box-shadow: 
-            4px 4px 12px #3333,
     inset   -2px -2px 4px #fff8,
-    inset   2px 2px 4px #3333;
+    inset   2px 2px 4px #3333; 
 }
   
 input[type="checkbox"]::before {
@@ -105,4 +104,15 @@ input[type="checkbox"]:disabled {
     inset   -2px -2px 4px #fff8,
     inset   2px 2px 4px #3333;
 
+}
+.actions-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: .5rem;
+    max-width: 2em;
+}
+.actions-container app-trash,
+.actions-container app-pencil{
+    padding: 4px;
 }

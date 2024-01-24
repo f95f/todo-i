@@ -1,7 +1,7 @@
 section{
     max-width: 1000px;
     margin: auto;
-    padding-top: 10vh;
+    padding: 10vh 10vw;
 }
 h1{
     color: var(--accent);
@@ -12,13 +12,24 @@ h1{
     text-shadow: -2px -2px 6px #fff, 
                  2px 2px 6px #3333;
 }
+.empty-items-info-container{
+    margin-top: 2em;
+}
 .empty-list-info{
+    padding-top: 2em;
     font-size: 2em;
+    font-weight: 200;
     font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
     color: var(--dark);
 }
+.clear-button-container{
+    margin-top: 1em;
+    display: flex;
+    justify-content: flex-end;   
+}
 .clear-button{
     font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
     color: var(--accent);
     border: unset;
     margin-top: 1em;
@@ -34,6 +45,8 @@ h1{
 }
 .clear-button:hover{
     cursor: pointer;
+    color: var(--accent);
+    text-shadow: 0 0 16px var(--accent);
     box-shadow: 
         6px 6px 12px #3333,
         -6px -6px 12px #fff8;

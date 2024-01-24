@@ -1,6 +1,7 @@
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Item } from './interfaces/item';
 import { TodoService } from './services/todo.service';
+import { ColorService } from './services/color.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit, OnChanges, DoCheck{
   itemToEdit!: Item;
   itemToChangeStatus!: Item;
 
-  constructor(private service: TodoService){}
+  constructor(private service: TodoService,
+              private colorService: ColorService  ){}
 
   ngDoCheck(): void {
     this.service.storeItems();
@@ -22,6 +24,10 @@ export class AppComponent implements OnInit, OnChanges, DoCheck{
   
   ngOnInit(): void {
     this.todoList = this.service.getTodoList();
+    
+    this.colorService.accentColor$.subscribe((color) => {
+      document.documentElement.style.setProperty('--accent', color);
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
