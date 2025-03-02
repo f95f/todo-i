@@ -1,0 +1,19 @@
+<section>
+    <h1>todo:</h1>
+    <app-input [itemToEdit]="itemToEdit"></app-input>
+      <div class="clear-button-container">
+        <button (click)="clearList()" class="clear-button">
+          Limpar
+        </button>
+      </div>
+    <ul class="list" *ngIf="todoList.length; else noItemsToShow">
+      <li *ngFor="let item of todoList">
+        <app-item [item] = "item" 
+                  (itemToEmit)="updateItem($event)"
+                  (itemToDelete)="deleteItem($event)"></app-item>
+      </li>
+    </ul>
+    <ng-template #noItemsToShow >
+        <div class="empty-items-info-container"><span class="empty-list-info">Não há itens na lista.</span></div>
+    </ng-template>
+</section>
