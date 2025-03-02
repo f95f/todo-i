@@ -3,9 +3,10 @@ import { Item } from 'src/app/interfaces/item';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
-  selector: 'app-input',
-  templateUrl: './input.component.html',
-  styleUrls: ['./input.component.css']
+    selector: 'app-input',
+    templateUrl: './input.component.html',
+    styleUrls: ['./input.component.css'],
+    standalone: false
 })
 export class InputComponent implements OnChanges {
 
