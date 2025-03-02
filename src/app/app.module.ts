@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { ItemComponent } from './components/item/item.component';
 import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
-import { TrashComponent } from './icons/trash/trash.component';
-import { PencilComponent } from './icons/pencil/pencil.component';
+import { PencilComponent } from 'src/assets/icons/pencil/pencil.component';
+import { TrashComponent } from 'src/assets/icons/trash/trash.component';
 
 @NgModule({
   declarations: [
