@@ -1,5 +1,5 @@
 import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Item } from './interfaces/item';
+import { IItem } from './interfaces/item';
 import { TodoService } from './services/todo.service';
 import { ColorService } from './services/color.service';
 
@@ -12,9 +12,9 @@ import { ColorService } from './services/color.service';
 export class AppComponent implements OnInit, OnChanges, DoCheck{
 
   title = 'TODO';
-  todoList!: Array<Item>;
-  itemToEdit!: Item;
-  itemToChangeStatus!: Item;
+  todoList!: Array<IItem>;
+  itemToEdit!: IItem;
+  itemToChangeStatus!: IItem;
 
   constructor(private service: TodoService,
               private colorService: ColorService  ){}
@@ -35,10 +35,10 @@ export class AppComponent implements OnInit, OnChanges, DoCheck{
     
   }
   
-  updateItem(item: Item) {
+  updateItem(item: IItem) {
     this.itemToEdit = item;
   }
-  updateCheckedStatus(item: Item){
+  updateCheckedStatus(item: IItem){
     this.itemToChangeStatus = item;
     this.itemToChangeStatus.isDone = !this.itemToChangeStatus.isDone;
   }

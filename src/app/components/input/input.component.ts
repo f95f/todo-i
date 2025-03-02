@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Item } from 'src/app/interfaces/item';
+import { IItem } from 'src/app/interfaces/item';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class InputComponent implements OnChanges {
 
-  @Input() itemToEdit!: Item; 
+  @Input() itemToEdit!: IItem; 
   itemValue!: string;
   isEditing: boolean = false;
   buttonText: string = '+ Adicionar';

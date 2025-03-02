@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Item } from 'src/app/interfaces/item';
+import { IItem } from 'src/app/interfaces/item';
 
 @Component({
     selector: 'app-item',
@@ -8,8 +8,8 @@ import { Item } from 'src/app/interfaces/item';
     standalone: false
 })
 export class ItemComponent implements OnInit, OnChanges {
-  @Input() item!: Item;
-  @Output() itemToEmit = new EventEmitter<Item>();
+  @Input() item!: IItem;
+  @Output() itemToEmit = new EventEmitter<IItem>();
   @Output() itemToDelete = new EventEmitter<number>();
   
   ngOnInit(): void { }
