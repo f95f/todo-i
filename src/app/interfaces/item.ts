@@ -1,6 +1,8 @@
-export interface Item {
+interface IItem {
     id?: number | string,
     name: string,
     date: string | Date,
-    isDone:  boolean
+    isDone: boolean
 }
+
+export { IItem }
