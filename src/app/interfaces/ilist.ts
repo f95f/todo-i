@@ -10,5 +10,13 @@ interface IList {
     completion: number,
 }
 
+interface IListResume {
+    id: string,
+    name: string,
+    createdAt?: string | Date,
+    size?: number,
+    completion?: number,
+}
 
-export { IList }
+
+export { IList, IListResume }
