@@ -1,1 +1,14 @@
-<p (click)="selectList(list.id)">{{ list.name }}</p>
+<div class="resume-list">
+    <div class="icon-wrapper"></div>
+    <div class="content-wrapper">
+        <div class="left-content">
+            <p>{{ list.name }}</p>
+            <p>progress bar goes here</p>
+        </div>
+        <div class="right-content">
+            <p>{{ list.size }} itens.</p>
+            <p>{{ list.completion }} concluídos.</p>
+        </div>
+    </div>
+    <div class="action-wrapper"></div>
+</div>
