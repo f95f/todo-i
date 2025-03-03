@@ -1,7 +1,19 @@
 <section>
-  <h1>todo:</h1>
+  <div class="title-row">
+    <h1>todo:</h1>
+    <h2 (mouseenter)="showListNameInput()" 
+        (mouseleave)="hideListNameInput()" 
+        *ngIf="!isListNameInputVisible">
+      {{ todoList.name || "Lista sem nome" }}
+    </h2>
+    <input *ngIf="isListNameInputVisible"
+      type="text" 
+      class="inline-input" 
+      [(ngModel)]="todoList.name" 
+      (mouseleave)="updateListName()" />
+  </div>
 
-  <app-input 
+  <app-input
     [itemToEdit]="itemToEdit"
     (onCreateItem)="createItem($event)"
     (onEditItem)="updateItem($event)">

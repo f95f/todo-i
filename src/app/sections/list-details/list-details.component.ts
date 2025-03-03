@@ -30,6 +30,7 @@ export class ListDetailsComponent {
   todoList!: IList;
   itemToEdit!: IItem;
   itemToChangeStatus!: IItem;
+  isListNameInputVisible: boolean = false;
   
   ngOnInit(): void {
     this.dataService.listId.subscribe((id) => {
@@ -69,6 +70,20 @@ export class ListDetailsComponent {
   updateCheckedStatus(item: IItem){
     this.updateItem(item);
   }
+
+  updateListName(): void {
+    this.storageService.storeList(this.todoList);
+    this.hideListNameInput();
+  }
+
+  showListNameInput(): void {
+    this.isListNameInputVisible = true;
+  }
+
+  hideListNameInput(): void {
+    this.isListNameInputVisible = false;
+  }
+
 
   deleteItem(itemId: string) {
     const index = this.todoList.items.findIndex(item => item.id === itemId);
