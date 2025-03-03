@@ -22,6 +22,13 @@ export class InputComponent {
   isEditing: boolean = false;
   buttonText: string = '+ Adicionar';
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['itemToEdit'] && changes['itemToEdit'].currentValue) {
+      this.isEditing = true;
+      this.buttonText = "Confirmar";
+      this.itemValue = this.itemToEdit.name;
+    }
+  }
 
   addItem(){
     const item: IItem = {

@@ -33,7 +33,8 @@ export class ListDetailsComponent {
   
   ngOnInit(): void {
     this.dataService.listId.subscribe((id) => {
-      if(!id) this.return();
+      if(!id) { this.return(); return; }
+
       const todoList = this.storageService.getListDetails(id);
       if (todoList) {
         this.todoList = todoList;
