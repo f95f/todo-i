@@ -5,7 +5,6 @@ import { IItem } from 'src/app/interfaces/item';
     selector: 'app-item',
     templateUrl: './item.component.html',
     styleUrls: ['./item.component.css'],
-    standalone: false
 })
 export class ItemComponent implements OnInit, OnChanges {
   @Input() item!: IItem;

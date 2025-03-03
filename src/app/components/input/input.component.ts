@@ -6,7 +6,6 @@ import { TodoService } from 'src/app/services/todo.service';
     selector: 'app-input',
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.css'],
-    standalone: false
 })
 export class InputComponent implements OnChanges {
 

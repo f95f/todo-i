@@ -7,19 +7,19 @@ import { InputComponent } from './components/input/input.component';
 import { FormsModule } from '@angular/forms';
 import { PencilComponent } from 'src/assets/icons/pencil/pencil.component';
 import { TrashComponent } from 'src/assets/icons/trash/trash.component';
+import { IconModule } from './modules/icon/icon.module';
+import { ListDetailsComponent } from './sections/list-details/list-details.component';
+import { ListsComponent } from './sections/lists/lists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemComponent,
-    InputComponent,
-    TrashComponent,
-    PencilComponent
   ],
   imports: [
-    BrowserModule,
+    // BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    // FormsModule,
+    // IconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
