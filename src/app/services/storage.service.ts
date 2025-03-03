@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IList, IListResume } from '../interfaces/ilist';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class StorageService {
 
   getLists(): IListResume[] {
     this.retrieveLists();
+    this.checkForEmptyLists();
     return this.listResumes;
   }
 
@@ -44,6 +46,7 @@ export class StorageService {
     this.updateListResume();
     this.storeInClientStorage(this.listsKey, this.lists);
   }
+
 
 
   private updateListResume(): void {
@@ -91,5 +94,14 @@ export class StorageService {
     catch (error) {
       console.error(`Error storing item ${key} in local storage: `, error);
     }
+  }
+
+  private checkForEmptyLists(): void {
+    if(!this.lists || this.lists.length === 0) return;
+    this.lists.forEach((list: IList) => {
+      if(list.items.length === 0) {
+        this.deleteList(list.id);
+      }
+    });
   }
 }

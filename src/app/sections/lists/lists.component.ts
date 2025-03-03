@@ -30,7 +30,7 @@ export class ListsComponent {
     this.todoLists = this.service.getLists();
   }
 
-  createEmptyList() { console.warn('createEmptyList not implemented yet'); 
+  createEmptyList() {
     const emptyList: IList = {
       id: uuidv4(),
       name: `todo #${this.todoLists.length + 1}`,
@@ -44,4 +44,6 @@ export class ListsComponent {
     this.dataService.setListId(emptyList.id);
     this.router.navigate([`/lists/todos`]);
   }
+
+
 }
