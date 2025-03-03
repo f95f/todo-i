@@ -1,11 +1,15 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { IItem } from 'src/app/interfaces/item';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
     selector: 'app-input',
     templateUrl: './input.component.html',
     styleUrls: ['./input.component.css'],
+    imports: [
+      SharedModule
+    ] 
 })
 export class InputComponent implements OnChanges {
 

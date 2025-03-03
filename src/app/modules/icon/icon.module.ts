@@ -12,6 +12,10 @@ import { TrashComponent } from 'src/assets/icons/trash/trash.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    TrashComponent,
+    PencilComponent
   ]
 })
 export class IconModule { }
