@@ -1,9 +1,13 @@
 import { Component, inject, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { InputComponent } from 'src/app/components/input/input.component';
 import { ItemComponent } from 'src/app/components/item/item.component';
+import { IList } from 'src/app/interfaces/ilist';
 import { IItem } from 'src/app/interfaces/item';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
 import { ColorService } from 'src/app/services/color.service';
+import { DataService } from 'src/app/services/data.service';
+import { StorageService } from 'src/app/services/storage.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -18,43 +22,65 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class ListDetailsComponent {
 
-  private service: TodoService = inject(TodoService);
+  private dataService: DataService = inject(DataService);
   private colorService: ColorService = inject(ColorService);
+  private storageService: StorageService = inject(StorageService);
+  private router: Router = inject(Router);
 
-  todoList!: Array<IItem>;
+  todoList!: IList;
   itemToEdit!: IItem;
   itemToChangeStatus!: IItem;
-
-  ngDoCheck(): void {
-    this.service.storeItems();
-  }
   
   ngOnInit(): void {
-    this.todoList = this.service.getTodoList();
-    
+    this.dataService.listId.subscribe((id) => {
+      if(!id) this.return();
+      const todoList = this.storageService.getListDetails(id);
+      if (todoList) {
+        this.todoList = todoList;
+      }
+      else {
+        this.return();
+      }
+    });
+
     this.colorService.accentColor$.subscribe((color) => {
       document.documentElement.style.setProperty('--accent', color);
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    
+  createItem(item: IItem) {
+    this.todoList.items.push(item);
+    this.storageService.storeList(this.todoList);
   }
   
   updateItem(item: IItem) {
-    this.itemToEdit = item;
-  }
-  updateCheckedStatus(item: IItem){
-    this.itemToChangeStatus = item;
-    this.itemToChangeStatus.isDone = !this.itemToChangeStatus.isDone;
+    const index = this.todoList.items.findIndex(i => i.id === item.id);
+    this.todoList.items[index] = item;
+    this.storageService.storeList(this.todoList);
   }
 
-  deleteItem(itemId: number) {
-    const index = this.todoList.findIndex(item => item.id === itemId);
-    this.todoList.splice(index, 1);
+
+
+  setITemToEdit(item: IItem) {
+    this.itemToEdit = item;
   }
+
+  updateCheckedStatus(item: IItem){
+    this.updateItem(item);
+  }
+
+  deleteItem(itemId: string) {
+    const index = this.todoList.items.findIndex(item => item.id === itemId);
+    this.todoList.items.splice(index, 1);
+    this.storageService.storeList(this.todoList);
+  }
+
   clearList(){
-    this.service.clearList();
-    this.todoList = this.service.getTodoList();
+    this.todoList.items = [];
+    this.storageService.storeList(this.todoList);
+  }
+
+  return(): void {
+    this.router.navigate(['/lists']);
   }
 }

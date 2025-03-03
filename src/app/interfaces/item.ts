@@ -1,5 +1,5 @@
 interface IItem {
-    id?: number | string,
+    id?: string,
     name: string,
     date: string | Date,
     isDone: boolean

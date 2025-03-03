@@ -1,7 +1,8 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IItem } from 'src/app/interfaces/item';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
-import { TodoService } from 'src/app/services/todo.service';
+import { StorageService } from 'src/app/services/storage.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
     selector: 'app-input',
@@ -11,36 +12,42 @@ import { TodoService } from 'src/app/services/todo.service';
       SharedModule
     ] 
 })
-export class InputComponent implements OnChanges {
+export class InputComponent {
 
   @Input() itemToEdit!: IItem; 
+  @Output() onCreateItem = new EventEmitter<IItem>();
+  @Output() onEditItem = new EventEmitter<IItem>();
+  
   itemValue!: string;
   isEditing: boolean = false;
   buttonText: string = '+ Adicionar';
 
-  constructor(private service: TodoService){}
 
   addItem(){
-    this.service.addItemToList(this.itemValue);
+    const item: IItem = {
+      id: uuidv4(),
+      name: this.itemValue,
+      date: new Date(),
+      isDone: false
+    }
+    this.onCreateItem.emit(item);
     this.clearInput(); 
   }
+  
   updateItem(){
-   this.service.editItem(this.itemToEdit, this.itemValue);
-   this.clearInput();
-   this.isEditing = false;
-   this.buttonText = "Adicionar";
-  }
-  clearInput(){
-    this.itemValue = '';
+    const item: IItem = {
+      id: this.itemToEdit.id,
+      name: this.itemValue,
+      date: this.itemToEdit.date,
+      isDone: this.itemToEdit.isDone
+    }
+    this.onEditItem.emit(item);
+    this.clearInput();
+    this.isEditing = false;
+    this.buttonText = "Adicionar";
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    
-    // console.info(changes['itemToEdit'].currentValue);
-    if(!changes['itemToEdit'].firstChange){
-      this.isEditing = true;
-      this.buttonText = 'Salvar';
-      this.itemValue = this.itemToEdit.name;
-    }
+  clearInput(){
+    this.itemValue = '';
   }
 }

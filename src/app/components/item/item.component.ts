@@ -12,21 +12,22 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
       IconModule
     ]
 })
-export class ItemComponent implements OnInit, OnChanges {
+export class ItemComponent {
   @Input() item!: IItem;
-  @Output() itemToEmit = new EventEmitter<IItem>();
-  @Output() itemToDelete = new EventEmitter<number>();
-  
-  ngOnInit(): void { }
-  ngOnChanges(changes: SimpleChanges): void { }
+  @Output() onEditItem = new EventEmitter<IItem>();
+  @Output() onDeleteItem = new EventEmitter<string>();
+  @Output() onToggleItemStatus = new EventEmitter<IItem>();
 
   updateItem(){
-    this.itemToEmit.emit(this.item);
+    this.onEditItem.emit(this.item);
   }
+
   updateCheckedStatus(){
     this.item.isDone = !this.item.isDone;
+    this.onToggleItemStatus.emit(this.item);
   }
+
   deleteItem(){
-    this.itemToDelete.emit(Number(this.item.id));
+    this.onDeleteItem.emit(this.item.id);
   }
 }
