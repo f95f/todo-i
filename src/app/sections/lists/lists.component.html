@@ -1,1 +1,26 @@
-<p>lists works!</p>
+<section>
+
+    <h1>todos:</h1>
+
+    <div class="actions-row">
+        <button (click)="createEmptyList()" class="button">
+            Nova Lista
+        </button>
+    </div>
+
+    @if(todoList && todoList.length) {
+        <ul class="list">
+          <li>
+          </li>
+        </ul>
+    }
+    @else {
+        <div>
+            <span class="empty-list-info">
+                Nenhuma lista adicionada.
+            </span>
+        </div>
+    }
+
+
+</section>

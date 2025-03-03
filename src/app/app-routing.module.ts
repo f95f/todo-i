@@ -5,7 +5,7 @@ import { ListDetailsComponent } from './sections/list-details/list-details.compo
 
 const routes: Routes = [
   { path: 'lists', component: ListsComponent },
-  { path: 'lists/:id', component: ListDetailsComponent },
+  { path: 'lists/todos', component: ListDetailsComponent },
   { path: '', redirectTo: '/lists', pathMatch: 'full' },
   { path: '**', redirectTo: '/lists' },
 ];
