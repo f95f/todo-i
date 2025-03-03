@@ -8,11 +8,10 @@
         </button>
     </div>
 
-    @if(todoList && todoList.length) {
-        <ul class="list">
-          <li>
-          </li>
-        </ul>
+    @if(todoLists && todoLists.length) {
+        @for(item of todoLists; track item.id) {
+            <app-list-resume [list]="item"></app-list-resume>
+        }
     }
     @else {
         <div>

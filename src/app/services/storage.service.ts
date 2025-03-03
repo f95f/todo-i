@@ -11,23 +11,14 @@ export class StorageService {
   private listsKey: string = 'lists';
   private listResumesKey: string = 'listResumes';
 
-  ngOnInit(): void {
-    this.retrieveLists();
-  } 
-
-
   getLists(): IListResume[] {
+    this.retrieveLists();
     return this.listResumes;
   }
 
   storeList(list: IList): void {
     const listIndex: number = this.lists.findIndex((l: IList) => l.id === list.id);
-    if (listIndex === -1) {
-      this.lists.push(list);
-    }
-    else {
-      this.lists[listIndex] = list;
-    }
+    listIndex === -1 ? this.lists.push(list) : this.lists[listIndex] = list;
     this.updateListResume();
     this.storeInClientStorage(this.listsKey, this.lists);
   }

@@ -17,10 +17,10 @@ export class TodoService {
     return this.todoList;
   }
 
-  createItem(item: string): IItem{
+  createItem(item: string): any{
     const id = this.todoList.length +1;
     const newItem: IItem = {
-      id: id,
+      id: '',
       name: item,
       date: this.makeDate(),
       isDone: false,

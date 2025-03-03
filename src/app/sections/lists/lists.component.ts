@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { ListResumeComponent } from 'src/app/components/list-resume/list-resume.component';
 import { IList, IListResume } from 'src/app/interfaces/ilist';
 import { DataService } from 'src/app/services/data.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -7,7 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-lists',
-  imports: [],
+  imports: [
+    ListResumeComponent
+  ],
   templateUrl: './lists.component.html',
   styleUrl: './lists.component.css'
 })
@@ -16,12 +19,21 @@ export class ListsComponent {
   private dataService: DataService = inject(DataService);
   private router: Router = inject(Router);
   
-  todoList: IListResume[] = [];
+  todoLists: IListResume[] = [];
+
+  ngOnInit(): void {
+    this.getLists();
+  }
   
+  
+  getLists() {
+    this.todoLists = this.service.getLists();
+  }
+
   createEmptyList() { console.warn('createEmptyList not implemented yet'); 
     const emptyList: IList = {
       id: uuidv4(),
-      name: `todo #${this.todoList.length + 1}`,
+      name: `todo #${this.todoLists.length + 1}`,
       items: [],
       createdAt: new Date(),
       updatedAt: '',
