@@ -72,6 +72,8 @@ export class ListDetailsComponent {
   }
 
   updateListName(): void {
+    if(this.todoList.name === '') return;
+    if(this.todoList.name.length > 32) this.todoList.name = this.todoList.name.slice(0, 32);
     this.storageService.storeList(this.todoList);
     this.hideListNameInput();
   }

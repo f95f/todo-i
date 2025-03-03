@@ -8,7 +8,8 @@
     </h2>
     <input *ngIf="isListNameInputVisible"
       type="text" 
-      class="inline-input" 
+      class="inline-input"
+      maxlength="32"
       [(ngModel)]="todoList.name" 
       (mouseleave)="updateListName()" />
   </div>
