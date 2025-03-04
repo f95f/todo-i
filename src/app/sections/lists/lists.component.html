@@ -10,7 +10,9 @@
 
     @if(todoLists && todoLists.length) {
         @for(item of todoLists; track item.id) {
-            <app-list-resume [list]="item"></app-list-resume>
+            <app-list-resume [list]="item" 
+            (onDelete)="deleteList($event)"
+            (click)="openList(item.id)"></app-list-resume>
         }
     }
     @else {

@@ -45,5 +45,13 @@ export class ListsComponent {
     this.router.navigate([`/lists/todos`]);
   }
 
+  openList(listId: string) {
+    this.dataService.setListId(listId);
+    this.router.navigate([`/lists/todos`]);
+  }
 
+  deleteList(listId: string) {
+    this.service.deleteList(listId);
+    this.getLists();
+  }
 }

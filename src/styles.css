@@ -7,6 +7,20 @@
     --darkest: #6B7187;
     --accent: #FCC22A;
 }
+
+.material-symbols-outlined {
+    color: var(--accent);
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 100,
+    'GRAD' 200,
+    'opsz' 24;
+}
+
+.debug {
+    outline: 1px dashed lime;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,6 +32,13 @@ body{
     min-height: 100vh;
     background: linear-gradient(to top, #E7E8ED, #F7F8FA);
     background-size: 100% 100%;
+}
+
+hr.vertical-separator {
+    border: unset;
+    border-left: 1px solid var(--dark);
+    height: 24px;
+    margin: 0;
 }
 
 section{
