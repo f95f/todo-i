@@ -18,6 +18,6 @@
             <app-pencil (click)="updateItem()"></app-pencil>
         </div>
         <div class="separator"></div>
-        <small class="date">{{item.date}}</small>
+        <small class="date">{{ item.date | time }}</small>
     </div>
 </div>

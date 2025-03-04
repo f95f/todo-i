@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange
 import { IItem } from 'src/app/interfaces/item';
 import { IconModule } from 'src/app/modules/icon/icon.module';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { TimePipe } from 'src/app/pipes/time.pipe';
 
 @Component({
     selector: 'app-item',
@@ -9,7 +10,8 @@ import { SharedModule } from 'src/app/modules/shared/shared.module';
     styleUrls: ['./item.component.css'],
     imports: [
       SharedModule,
-      IconModule
+      IconModule,
+      TimePipe
     ]
 })
 export class ItemComponent {
