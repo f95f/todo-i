@@ -33,9 +33,14 @@
     (onEditItem)="updateItem($event)">
   </app-input>
 
-  <div class="clear-button-container">
-    <button (click)="clearList()" class="clear-button">
+  <div class="actions-row">
+    <a role="button" (click)="clearList()" class="inline-button">
+      <span class="material-symbols-outlined">delete_sweep</span>
       Limpar
+    </a>
+    <button (click)="return()" class="clear-button">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Voltar
     </button>
   </div>
 
