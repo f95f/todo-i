@@ -1,0 +1,26 @@
+<div class="resume-list">
+    <div class="icon-wrapper">
+        <span class="material-symbols-outlined">
+            playlist_add_check
+        </span>
+    </div>
+    <hr class="vertical-separator">
+    <div class="content-wrapper">
+        <div class="left-content">
+            <p class="list-name">{{ list.name }}</p>
+            <div class="progress-bar-container">
+                <div class="progress-bar" [style.width]="getWidth()"></div>
+            </div>
+        </div>
+        <div class="right-content">
+            <p>{{ list.size }} itens.</p>
+            <p>{{ getWidth() }} concluídos.</p>
+        </div>
+    </div>
+    <hr class="vertical-separator">
+    <div class="icon-wrapper delete-button" 
+        (click)="$event.stopPropagation();"
+        (click)="deleteList(list.id)">
+        <span class="material-symbols-outlined"> delete </span>
+    </div>
+</div>

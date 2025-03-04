@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Item } from '../interfaces/item';
+import { IItem } from '../interfaces/item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoService {
 
-  private todoList: Item[] = []
+  private todoList: IItem[] = []
 
   constructor() {
     console.log('Instanciando dependências necessárias para o serviço.');
@@ -17,10 +17,10 @@ export class TodoService {
     return this.todoList;
   }
 
-  createItem(item: string): Item{
+  createItem(item: string): any{
     const id = this.todoList.length +1;
-    const newItem: Item = {
-      id: id,
+    const newItem: IItem = {
+      id: '',
       name: item,
       date: this.makeDate(),
       isDone: false,
@@ -40,8 +40,8 @@ export class TodoService {
     this.todoList.push(item);
   }
 
-  editItem(previousItem: Item, updatedItem: string){
-    const item: Item = {
+  editItem(previousItem: IItem, updatedItem: string){
+    const item: IItem = {
       id: previousItem.id,
       name: updatedItem,
       date: previousItem.date,

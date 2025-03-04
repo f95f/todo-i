@@ -1,0 +1,9 @@
+section{
+    max-width: 1000px;
+    margin: auto;
+    padding: 10vh 10vw;
+}
+
+.actions-row {
+    margin-bottom: 16px;
+}

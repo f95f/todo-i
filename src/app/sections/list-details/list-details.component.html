@@ -1,0 +1,64 @@
+<section>
+  <div class="title-row">
+    <div class="left-wrapper">
+      <h1>todo:</h1>
+    </div>
+    <div class="right-wrapper">
+      @if(!isListNameInputVisible) {
+        <h2 (mouseenter)="showListNameInput()"
+            (mouseleave)="hideListNameInput()">
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+          {{ todoList.name || "Lista sem nome" }}
+        </h2>
+      }
+      @else {
+        <span class="material-symbols-outlined edit-icon">
+          edit
+        </span>
+        <input type="text"
+          class="inline-input"
+          maxlength="32"
+          [(ngModel)]="todoList.name"
+          (mouseleave)="updateListName()" />
+      }
+      
+    </div>
+  </div>
+
+  <app-input
+    [itemToEdit]="itemToEdit"
+    (onCreateItem)="createItem($event)"
+    (onEditItem)="updateItem($event)">
+  </app-input>
+
+  <div class="actions-row">
+    <a role="button" (click)="clearList()" class="inline-button">
+      <span class="material-symbols-outlined">delete_sweep</span>
+      Limpar
+    </a>
+    <button (click)="return()" class="clear-button">
+      <span class="material-symbols-outlined">arrow_back</span>
+      Voltar
+    </button>
+  </div>
+
+  @if(todoList && todoList.items.length) {
+    <ul>
+      <li *ngFor="let item of todoList.items">
+        <app-item 
+          [item] = "item" 
+          (onEditItem)="setITemToEdit($event)"
+          (onDeleteItem)="deleteItem($event)"
+          (onToggleItemStatus)="updateCheckedStatus($event)"
+        ></app-item>
+      </li>
+    </ul>
+  }
+  @else {
+    <div class="empty-items-info-container">
+      <span class="empty-list-info">Não há itens na lista.</span>
+    </div>
+  }
+</section>

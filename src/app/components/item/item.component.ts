@@ -1,26 +1,35 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Item } from 'src/app/interfaces/item';
+import { IItem } from 'src/app/interfaces/item';
+import { IconModule } from 'src/app/modules/icon/icon.module';
+import { SharedModule } from 'src/app/modules/shared/shared.module';
+import { TimePipe } from 'src/app/pipes/time.pipe';
 
 @Component({
-  selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+    selector: 'app-item',
+    templateUrl: './item.component.html',
+    styleUrls: ['./item.component.css'],
+    imports: [
+      SharedModule,
+      IconModule,
+      TimePipe
+    ]
 })
-export class ItemComponent implements OnInit, OnChanges {
-  @Input() item!: Item;
-  @Output() itemToEmit = new EventEmitter<Item>();
-  @Output() itemToDelete = new EventEmitter<number>();
-  
-  ngOnInit(): void { }
-  ngOnChanges(changes: SimpleChanges): void { }
+export class ItemComponent {
+  @Input() item!: IItem;
+  @Output() onEditItem = new EventEmitter<IItem>();
+  @Output() onDeleteItem = new EventEmitter<string>();
+  @Output() onToggleItemStatus = new EventEmitter<IItem>();
 
   updateItem(){
-    this.itemToEmit.emit(this.item);
+    this.onEditItem.emit(this.item);
   }
+
   updateCheckedStatus(){
     this.item.isDone = !this.item.isDone;
+    this.onToggleItemStatus.emit(this.item);
   }
+
   deleteItem(){
-    this.itemToDelete.emit(Number(this.item.id));
+    this.onDeleteItem.emit(this.item.id);
   }
 }

@@ -1,0 +1,27 @@
+<section>
+
+    <h1>todos:</h1>
+
+    <div class="actions-row">
+        <button (click)="createEmptyList()" class="button">
+            Nova Lista
+        </button>
+    </div>
+
+    @if(todoLists && todoLists.length) {
+        @for(item of todoLists; track item.id) {
+            <app-list-resume [list]="item" 
+            (onDelete)="deleteList($event)"
+            (click)="openList(item.id)"></app-list-resume>
+        }
+    }
+    @else {
+        <div>
+            <span class="empty-list-info">
+                Nenhuma lista adicionada.
+            </span>
+        </div>
+    }
+
+
+</section>
