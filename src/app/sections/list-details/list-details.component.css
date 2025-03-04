@@ -1,3 +1,32 @@
 .list {
     margin-top: 16px;
 }
+
+
+.title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.right-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.right-wrapper h2 {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--darkest);
+    font-weight: 200;
+}
+
+
+.right-wrapper span {
+    color: var(--darkest);
+    font-weight: 200;
+    opacity: .6;
+    margin-right: 4px
+}
