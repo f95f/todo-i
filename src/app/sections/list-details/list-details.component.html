@@ -4,20 +4,26 @@
       <h1>todo:</h1>
     </div>
     <div class="right-wrapper">
-      <h2 (mouseenter)="showListNameInput()"
-          (mouseleave)="hideListNameInput()"
-          *ngIf="!isListNameInputVisible">
-        <span class="material-symbols-outlined">
+      @if(!isListNameInputVisible) {
+        <h2 (mouseenter)="showListNameInput()"
+            (mouseleave)="hideListNameInput()">
+          <span class="material-symbols-outlined">
+            edit
+          </span>
+          {{ todoList.name || "Lista sem nome" }}
+        </h2>
+      }
+      @else {
+        <span class="material-symbols-outlined edit-icon">
           edit
         </span>
-        {{ todoList.name || "Lista sem nome" }}
-      </h2>
-      <input *ngIf="isListNameInputVisible"
-        type="text"
-        class="inline-input"
-        maxlength="32"
-        [(ngModel)]="todoList.name"
-        (mouseleave)="updateListName()" />
+        <input type="text"
+          class="inline-input"
+          maxlength="32"
+          [(ngModel)]="todoList.name"
+          (mouseleave)="updateListName()" />
+      }
+      
     </div>
   </div>
 

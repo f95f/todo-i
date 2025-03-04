@@ -12,6 +12,7 @@
 .right-wrapper {
     display: flex;
     justify-content: flex-end;
+    position: relative;
 }
 
 .right-wrapper h2 {
@@ -29,4 +30,20 @@
     font-weight: 200;
     opacity: .6;
     margin-right: 4px
+}
+
+.right-wrapper input {
+    padding: 8px;
+    padding-left: 24px;
+    border: unset;
+    border-bottom: 1px solid var(--accent);
+    background-color: unset;
+}
+
+.right-wrapper span.edit-icon {
+    position: absolute;
+    left: 4px;
+    bottom: 10px;
+    font-size: .9em;
+    color: var(--accent)
 }
