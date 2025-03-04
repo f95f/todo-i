@@ -1,0 +1,13 @@
+svg{
+    width: 1em;
+    aspect-ratio: 1;
+    opacity: .5;
+    fill: var(--darkest);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+svg:hover{
+    opacity: 1;
+    fill: var(--accent);
+}

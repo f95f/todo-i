@@ -64,8 +64,8 @@ export class StorageService {
 
   
   private retrieveLists(): void {
-    this.lists = this.retrieveFromClientStorage(this.listsKey) as IList[];
-    this.listResumes = this.retrieveFromClientStorage(this.listResumesKey) as IListResume[];
+    this.lists = (this.retrieveFromClientStorage(this.listsKey) || []) as IList[];
+    this.listResumes = (this.retrieveFromClientStorage(this.listResumesKey) || []) as IListResume[];
   }
 
 
