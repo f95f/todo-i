@@ -1,4 +1,4 @@
-.item-container{
+/* .item-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,16 +15,22 @@
             -2px -2px 4px #fff; 
  
     transition: all .2s ease;
-}
-.item-container:hover{
-    background-color: var(--base);
-    box-shadow: 
-            6px 6px 12px #3333,
-            -3px -3px 12px #fff,
-    inset   1px 1px 2px var(--light),
-    inset   -1px -1px 2px var(--dark); 
+} */
 
+.elevated-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 16px;
 }
+
+p.description {
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--grey-900);
+}
+
 
 .checkbox-container {
     display: grid;
@@ -41,7 +47,7 @@ input[type="checkbox"] {
     margin: 0;
     width: 2em;
     height: 2em;
-    border-radius: .6em;
+    border-radius: 4px;
     transform: translateY(-0.075em);
     display: grid;
     cursor: pointer;
@@ -83,20 +89,12 @@ input[type="checkbox"]:focus {
 input[type="checkbox"]:disabled {
     cursor: not-allowed;
 }
-.separator{
-    height: 1.6em;
-    border-right: 2px solid var(--dark);
-}
-.description{
-    font-family: 'PT Sans', Arial, Helvetica, sans-serif;
-    font-size: 1.2em;
-    line-height: 1em;
-    color: var(--darkest)
-}
+
+
 .left, .right{
     display: flex;
     align-items: center;
-    gap: 1.6em;
+    gap: 8px;
 }
 .sunken, .sunken:hover{
     box-shadow:
@@ -104,16 +102,19 @@ input[type="checkbox"]:disabled {
             2px 2px 4px #3333,
     inset   -2px -2px 4px #fff8,
     inset   2px 2px 4px #3333;
-
 }
+
 .actions-container{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: .5rem;
-    max-width: 2em;
+    gap: 12px;
 }
-.actions-container app-trash,
-.actions-container app-pencil{
-    padding: 4px;
+
+hr.vertical-separator {
+    margin: 0 8px;
+}
+
+small {
+    font-size: .8em;
 }

@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Quicksand:wght@300;400&display=swap');
 
 :root{
-    --light: #F7F8FA;
+    /* --light: #F7F8FA;
     --base: #E7E8ED;
     --dark: #DCDCE4;
-    --darkest: #6B7187;
+    --darkest: #6B7187; */
     --accent: #FCC22A;
 
     --grey-900: #0D0D0D;
@@ -294,4 +294,8 @@ a.inline-button span {
     color: var(--accent);
     filter: brightness(.8);
     transition: all .2s ease;
+}
+
+small {
+    color: var(--grey-500)
 }
