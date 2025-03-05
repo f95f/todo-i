@@ -8,6 +8,7 @@
     max-width: 1000px;
     padding: 1em 1.6em;
     margin: 1em 0;
+    background-color: var(--grey-300);
     border-radius: 3em;
     box-shadow: 
             3px 3px 6px #3333,

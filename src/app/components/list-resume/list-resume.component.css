@@ -1,6 +1,7 @@
 .resume-list {
     display: flex;
     justify-content: space-between;
+    background-color: var(--grey-300);
     align-items: center;
     border-radius: 8px;
     padding: 0 8px;
