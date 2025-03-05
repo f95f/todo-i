@@ -14,9 +14,9 @@
     --grey-100: #FFF9EA;
 
     --shadow: #5B758142;
-    --light: #FFF9EAAA;
+    --light: #FFF9EA66;
 
-    --grid-size: 160px;
+    --grid-size: 200px;
 }
 
 .background-container {
@@ -96,11 +96,91 @@
     z-index: 2;
 }
 
+.elevated-block {
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 4px;
+    background-color: var(--grey-300);
+    color: var(--grey-900);
+    border: unset;
+    letter-spacing: 1px;
+    box-shadow: 
+        -4px -4px 4px var(--light),
+        -8px -8px 8px var(--light),
+        8px -12px 12px var(--light),
+        4px 4px 4px var(--shadow),
+        8px 8px 8px var(--shadow),
+        12px 12px 12px var(--shadow),
+    inset 1px 1px 1px var(--light),
+    inset -1px -1px 1px var(--shadow);
+}
 
+/* Buttons */
+.button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 4px;
+    background-color: var(--grey-300);
+    color: var(--grey-900);
+    border: unset;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 2px var(--shadow), -1px -1px 2px var(--light);
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 
+        -4px -4px 4px var(--light),
+        -8px -8px 8px var(--light),
+        8px -12px 12px var(--light),
+        4px 4px 4px var(--shadow),
+        8px 8px 8px var(--shadow),
+        12px 12px 12px var(--shadow),
+    inset 1px 1px 1px var(--light),
+    inset -1px -1px 1px var(--shadow);
+}
 
+.button:hover {
+    color: var(--accent);
+    text-shadow: 2px 2px 4px var(--accent);
+    box-shadow: 
+        -4px -4px 4px var(--light),
+        -8px -8px 8px var(--light),
+        0px 0px 0px var(--light),
+        4px 4px 4px var(--shadow),
+        8px 8px 8px var(--shadow),
+        0px 0px 0px var(--shadow),
+    inset 1px 1px 0px var(--light),
+    inset -1px -1px 0px var(--shadow);
+}
+
+.button:active {
+    color: var(--accent);
+    box-shadow: 
+        -4px -4px 4px var(--light),
+        -0px -0px 0px var(--light),
+        0px 0px 0px var(--light),
+        4px 4px 4px var(--shadow),
+        0px 0px 0px var(--shadow),
+        0px 0px 0px var(--shadow),
+    inset 1px 1px 0px var(--light),
+    inset -1px -1px 0px var(--shadow);
+}
+
+.button span {
+    font-size: 1.3em;
+    transition: all .2s ease;
+}
+.button:hover span,
+.button:active span {
+    text-shadow: 2px 2px 4px var(--accent);
+    color: var(--accent);
+}
 
 .material-symbols-outlined {
-    color: var(--accent);
+    color: var(--grey-700);
     font-variation-settings:
     'FILL' 0,
     'wght' 100,
@@ -162,7 +242,7 @@ h1{
     display: flex;
     justify-content: flex-end;   
 }
-.clear-button, .button {
+.clear-button {
     font-family: 'Quicksand', Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
     display: flex;
