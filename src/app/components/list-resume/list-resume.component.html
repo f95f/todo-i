@@ -18,9 +18,11 @@
         </div>
     </div>
     <hr class="vertical-separator">
-    <div class="icon-wrapper delete-button" 
-        (click)="$event.stopPropagation();"
-        (click)="deleteList(list.id)">
-        <span class="material-symbols-outlined"> delete </span>
+    <div class="icon-wrapper" >
+        <a  role="button" class="inline-button"
+            (click)="$event.stopPropagation();"
+            (click)="deleteList(list.id)">
+            <span class="material-symbols-outlined"> delete </span>
+        </a>
     </div>
 </div>

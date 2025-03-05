@@ -1,7 +1,6 @@
 import { Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IItem } from 'src/app/interfaces/item';
 import { SharedModule } from 'src/app/modules/shared/shared.module';
-import { StorageService } from 'src/app/services/storage.service';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
