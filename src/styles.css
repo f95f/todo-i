@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Quicksand:wght@300;400&display=swap');
 
 :root{
-    /* --light: #F7F8FA;
-    --base: #E7E8ED;
-    --dark: #DCDCE4;
-    --darkest: #6B7187; */
     --accent: #FCC22A;
 
     --grey-900: #0D0D0D;
@@ -103,6 +99,7 @@
     color: var(--grey-900);
     border: unset;
     letter-spacing: 1px;
+    transition: all .2s ease;
     box-shadow: 
         -4px -4px 4px var(--light),
         -8px -8px 8px var(--light),
