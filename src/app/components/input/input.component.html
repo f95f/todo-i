@@ -1,4 +1,4 @@
 <form class="add-item" (ngSubmit)="isEditing? updateItem() : addItem()">
     <input type="text" name="item" [(ngModel)]="itemValue" placeholder="O que deseja fazer?">
-    <button type="submit" *ngIf="itemValue">{{buttonText}}</button>
+    <button type="submit" class="input-button" *ngIf="itemValue">{{buttonText}}</button>
 </form>

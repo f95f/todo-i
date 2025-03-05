@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Quicksand:wght@300;400&display=swap');
 
 :root{
-    --light: #F7F8FA;
-    --base: #E7E8ED;
-    --dark: #DCDCE4;
-    --darkest: #6B7187;
     --accent: #FCC22A;
 
     --grey-900: #0D0D0D;
@@ -103,6 +99,7 @@
     color: var(--grey-900);
     border: unset;
     letter-spacing: 1px;
+    transition: all .2s ease;
     box-shadow: 
         -4px -4px 4px var(--light),
         -8px -8px 8px var(--light),
@@ -282,9 +279,28 @@ a.inline-button {
     gap: 4px;
     filter: brightness(.8);
     cursor: pointer;
+    text-shadow: 0px 0px 0px var(--accent);
     transition: all .2s ease;
 }
 
 a.inline-button:hover {
+    text-shadow: 0px 0px 8px var(--accent);
     filter: brightness(1);
+}
+
+a.inline-button span {
+    font-size: 1.2em;
+    color: var(--accent);
+    filter: brightness(.8);
+    text-shadow: 0px 0px 0px var(--accent);
+    transition: all .2s ease;
+}
+
+a.inline-button:hover span {
+    text-shadow: 0px 0px 8px var(--accent);
+    filter: brightness(1);
+}
+
+small {
+    color: var(--grey-500)
 }

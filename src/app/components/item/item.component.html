@@ -1,4 +1,4 @@
-<div class="item-container" [class.sunken]="item.isDone">
+<div class="elevated-block" [class.sunken]="item.isDone">
     <div class="left">
         <label for="done" class="checkbox-container">
             <input type="checkbox"
@@ -8,16 +8,20 @@
             (change)="updateCheckedStatus()"
             [checked]="item.isDone">
         </label>
-        <div class="separator"></div>
+        <hr class="vertical-separator">
         <p class="description">{{item.name}}</p>
     </div>
 
     <div class="right">
-        <div *ngIf="!item.isDone" class="actions-container">
-            <app-trash (click)="deleteItem()"></app-trash>
-            <app-pencil (click)="updateItem()"></app-pencil>
-        </div>
-        <div class="separator"></div>
         <small class="date">{{ item.date | time }}</small>
+        <hr  *ngIf="!item.isDone" class="vertical-separator">
+        <div *ngIf="!item.isDone" class="actions-container">
+            <a role="button" (click)="deleteItem()" class="inline-button">
+                <span class="material-symbols-outlined">delete</span>
+            </a>
+            <a role="button" (click)="updateItem()" class="inline-button">
+                <span class="material-symbols-outlined">edit</span>
+            </a>
+        </div>
     </div>
 </div>
