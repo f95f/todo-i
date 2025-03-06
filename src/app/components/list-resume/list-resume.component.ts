@@ -26,7 +26,7 @@ export class ListResumeComponent {
     const completion = this.list.completion || 0;
     const totalItems = this.list.size || 0;
 
-    return totalItems? `${((completion / totalItems) * 100).toFixed(2)}%` : `0%`;
+    return totalItems? `${((completion / totalItems) * 100).toFixed()}%` : `0%`;
   }
 
   deleteList(listId: string): void {4
