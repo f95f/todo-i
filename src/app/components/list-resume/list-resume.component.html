@@ -1,28 +1,34 @@
-<div class="resume-list elevated-block">
-    <div class="icon-wrapper">
-        <span class="material-symbols-outlined">
-            playlist_add_check
-        </span>
+<div class="resume-card elevated-block">
+    <div class="card-header">
+        <div class="icon-wrapper">
+                        <!-- <span class="material-symbols-outlined icon">
+                            playlist_add_check
+                        </span> -->
+            <span class="completion-label">{{ getWidth() }}</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" [style.width]="getWidth()"></div>
+        </div>
     </div>
-    <hr class="vertical-separator">
     <div class="content-wrapper">
-        <div class="left-content">
+        <hr>
+        <div>
             <p class="list-name">{{ list.name }}</p>
-            <div class="progress-bar-container">
+            <!-- <div class="progress-bar-container">
                 <div class="progress-bar" [style.width]="getWidth()"></div>
-            </div>
+            </div> -->
         </div>
-        <div class="right-content">
+        <div class="card-footer">
             <p>{{ list.size }} itens.</p>
-            <p>{{ getWidth() }} concluídos.</p>
+            <p>{{ list.createdAt | date }}</p>
         </div>
     </div>
-    <hr class="vertical-separator">
+    <!-- <hr class="vertical-separator">
     <div class="icon-wrapper" >
         <a  role="button" class="inline-button"
             (click)="$event.stopPropagation();"
             (click)="deleteList(list.id)">
             <span class="material-symbols-outlined"> delete </span>
         </a>
-    </div>
+    </div> -->
 </div>

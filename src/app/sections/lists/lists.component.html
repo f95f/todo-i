@@ -9,20 +9,22 @@
         </button>
     </div>
 
-    @if(todoLists && todoLists.length) {
-        @for(item of todoLists; track item.id) {
-            <app-list-resume [list]="item" 
-            (onDelete)="deleteList($event)"
-            (click)="openList(item.id)"></app-list-resume>
+    <div class="todo-lists-grid">
+        @if(todoLists && todoLists.length) {
+            @for(item of todoLists; track item.id) {
+                <app-list-resume [list]="item" 
+                (onDelete)="deleteList($event)"
+                (click)="openList(item.id)"></app-list-resume>
+            }
         }
-    }
-    @else {
-        <div>
-            <span class="empty-list-info">
-                Nenhuma lista adicionada.
-            </span>
-        </div>
-    }
+        @else {
+            <div>
+                <span class="empty-list-info">
+                    Nenhuma lista adicionada.
+                </span>
+            </div>
+        }
+    </div>
 
 
 </section>
