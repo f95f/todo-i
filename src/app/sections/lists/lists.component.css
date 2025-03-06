@@ -7,3 +7,10 @@ section{
 .actions-row {
     margin-bottom: 32px;
 }
+
+.todo-lists-grid {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
