@@ -1,9 +1,14 @@
 <div class="resume-card elevated-block">
     <div class="card-header">
-        <span class="material-symbols-outlined icon">
-            playlist_add_check
-        </span>
-        <span>{{ getWidth() }}</span>
+        <div class="icon-wrapper">
+                        <!-- <span class="material-symbols-outlined icon">
+                            playlist_add_check
+                        </span> -->
+            <span class="completion-label">{{ getWidth() }}</span>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" [style.width]="getWidth()"></div>
+        </div>
     </div>
     <div class="content-wrapper">
         <hr>
